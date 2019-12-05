@@ -16,7 +16,7 @@ class RedisRateLimiter extends RateLimiter {
     constructor(options) {
         super(options);
         if (!options.hasOwnProperty('redis')) throw new Error('options.redis parameter is required');
-        if (typeof options.redis !== 'object' || options.redis.constructor.name !== 'RedisClient') {
+        if (typeof options.redis !== 'object') {
             throw new Error('options.redis must be an instance of RedisClient');
         }
         this.redis = options.redis;
